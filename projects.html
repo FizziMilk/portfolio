@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · Benas Šiaudvytis</title>
+  <meta name="description" content="Projects by Benas Šiaudvytis: a Unity driving game, a music-reactive ESP32 LED orb and a facial recognition access control system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Benas Šiaudvytis</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="page-title">
+      <h1>Projects</h1>
+      <p>Three projects I designed and built, covering game systems, embedded hardware and a full-stack IoT system.</p>
+      <ul class="jump">
+        <li><a href="#taxi">Taxi Driver</a></li>
+        <li><a href="#orb">LED orb</a></li>
+        <li><a href="#access">Access control</a></li>
+      </ul>
+    </section>
+
+    <!-- Taxi Driver -->
+    <article class="project" id="taxi">
+      <h2>Taxi Driver</h2>
+      <p class="summary">A PSX-styled night-time taxi game in Unity 6 and C#, with a real drivetrain model, conversation-based gameplay and some funky GPS rerouting.</p>
+
+      <figure class="headline">
+        <div class="media"><img src="assets/taxi/headline.jpg" alt="A green Lada parked under a street lamp, with the title taxi driver above it"></div>
+      </figure>
+
+      <div class="detail">
+        <div>
+          <h3>The problem</h3>
+          <p>I wanted a driving game where the car feels like a real car and the city feels like a real place, without building either by hand.</p>
+        </div>
+        <div>
+          <h3>What I built</h3>
+          <ul>
+            <li>A vehicle controller that models a real drivetrain, using the manufacturer's gear ratios and torque curve.</li>
+            <li>A GPS that plans the route with A* over the road network and recalculates it live when the player leaves it.</li>
+            <li>A city built from OpenStreetMap data in Blender, with a Python script that assigns materials by map tag.</li>
+            <li>Unity Editor tools that automate bulk changes across the road network.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Status</h3>
+          <p>In active development. Code available on request.</p>
+        </div>
+      </div>
+
+      <div class="clips">
+        <figure>
+          <div class="media"><video data-src="assets/taxi/04-gps-rerouting.mp4" poster="assets/taxi/04-gps-rerouting-poster.jpg" muted loop playsinline preload="none"></video></div>
+          <figcaption>The GPS on the dashboard recalculating the route after a wrong turn.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><video data-src="assets/taxi/01-passenger-intro.mp4" poster="assets/taxi/01-passenger-intro-poster.jpg" muted loop playsinline preload="none"></video></div>
+          <figcaption>Picking up the passenger.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><video data-src="assets/taxi/02-dialogue-options.mp4" poster="assets/taxi/02-dialogue-options-poster.jpg" muted loop playsinline preload="none"></video></div>
+          <figcaption>Choosing what to say while driving.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><video data-src="assets/taxi/03-driving.mp4" poster="assets/taxi/03-driving-poster.jpg" muted loop playsinline preload="none"></video></div>
+          <figcaption>Driving through the city.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><video data-src="assets/taxi/05-cigarette-handoff.mp4" poster="assets/taxi/05-cigarette-handoff-poster.jpg" muted loop playsinline preload="none"></video></div>
+          <figcaption>Drop-off, and a cigarette as a tip.</figcaption>
+        </figure>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <div class="media"><img src="assets/taxi/road-graph-gps-nodes.jpg" alt="The road network drawn over the city, with the navigation nodes the A* search uses" loading="lazy"></div>
+          <figcaption>The road graph the A* search runs on.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><img src="assets/taxi/map-road-network.jpg" alt="Top-down view of the whole city's road network" loading="lazy"></div>
+          <figcaption>The full road network, generated from OpenStreetMap.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><img src="assets/taxi/traffic-with-gps.jpg" alt="Traffic ahead on a city road, with the GPS phone on the dashboard" loading="lazy"></div>
+          <figcaption>Traffic, with the GPS on the dashboard.</figcaption>
+        </figure>
+      </div>
+
+      <ul class="tags">
+        <li>Unity 6</li><li>C#</li><li>A* pathfinding</li><li>Vehicle physics</li><li>Editor tooling</li><li>Blender</li><li>Python</li><li>OpenStreetMap</li>
+      </ul>
+    </article>
+
+    <!-- LED orb -->
+    <article class="project" id="orb">
+      <h2>Music-reactive LED orb</h2>
+      <p class="summary">An ESP32 fitted inside a pondering orb that turns music into colour and light, controlled from a phone over Bluetooth.</p>
+
+      <figure class="headline">
+        <div class="media orb-clip"><video src="assets/orb/orb-music.mp4" poster="assets/orb/orb-music-poster.jpg" controls playsinline preload="metadata"></video></div>
+        <figcaption>Press play with sound on: colour follows the notes being played, brightness follows the volume, and the lights pulse on the kick drum.</figcaption>
+      </figure>
+
+      <div class="detail">
+        <div>
+          <h3>The problem</h3>
+          <p>I wanted the orb to follow the music itself, not just flash with the volume, and I wanted to add this without damaging the original electronics.</p>
+        </div>
+        <div>
+          <h3>What I built</h3>
+          <ul>
+            <li>Firmware that runs an FFT on audio from an INMP441 I2S microphone and groups the energy into the 12 musical notes to choose the colour.</li>
+            <li>Brightness that follows the volume, and kick-drum detection with a low-pass filter that pulses the lights.</li>
+            <li>A web app that connects over Bluetooth for live control, calibration and saving presets to the ESP32.</li>
+            <li>The original infrared remote's buttons remapped to switch between presets.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hardware</h3>
+          <p>ESP32, INMP441 microphone, WS2812B addressable LEDs, battery power, all fitted inside the original shell.</p>
+        </div>
+      </div>
+
+            <div class="gallery portraits">
+        <figure>
+          <div class="media"><img src="assets/orb/wiring-layout.jpg" alt="ESP32 on a screw-terminal board wired to lever connectors and an LED strip, laid out on a desk" loading="lazy"></div>
+          <figcaption>Wiring it up on the bench before it went in.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><img src="assets/orb/connectors.jpg" alt="Close-up of lever connectors and a smoothing capacitor inside the orb's base" loading="lazy"></div>
+          <figcaption>Power distribution, with a smoothing capacitor for the LEDs.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><img src="assets/orb/led-core.jpg" alt="The orb's inner core wrapped in rows of addressable LED strip, with the lid fitted" loading="lazy"></div>
+          <figcaption>The inner core wrapped in WS2812B strip.</figcaption>
+        </figure>
+      </div>
+
+<ul class="tags">
+        <li>ESP32</li><li>Arduino C++</li><li>FFT</li><li>I2S audio</li><li>Bluetooth</li><li>WS2812B</li>
+      </ul>
+      <p class="project-links"><a href="https://github.com/FizziMilk">Code on GitHub</a></p>
+    </article>
+
+    <!-- Access control -->
+    <article class="project" id="access">
+      <h2>Facial recognition access control</h2>
+      <p class="summary">My final-year project: a door access system that checks a face and a one-time passcode, with an app for administrators.</p>
+
+      <figure class="headline">
+        <div class="media diagram"><img src="assets/iot/system-overview.png" alt="System diagram: a Raspberry Pi and a React Native mobile app both connect to a Flask backend on Amazon EC2, the Pi over MQTT and the app over a REST API"></div>
+        <figcaption>How the door, the server and the admin app connect.</figcaption>
+      </figure>
+
+      <div class="detail">
+        <div>
+          <h3>The problem</h3>
+          <p>A single factor, like a key card or a face alone, can be lost or faked. I built a system that needs both a recognised face and a passcode sent to the user's phone.</p>
+        </div>
+        <div>
+          <h3>What I built</h3>
+          <ul>
+            <li>Face recognition on a Raspberry Pi 4 with OpenCV and dlib, plus my own liveness check that rejects photos and phone screens using texture entropy (LBP), edge gradients and screen reflections.</li>
+            <li>A Flask REST API and Mosquitto MQTT broker on AWS EC2, behind Nginx with Let's Encrypt HTTPS. The door talks to the server over MQTT with mutual TLS.</li>
+            <li>One-time passcodes through Twilio Verify, and JWT-protected endpoints for admins.</li>
+            <li>An Expo React Native app for admins to manage users, set the door's opening hours, read the access logs and unlock the door remotely.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Results</h3>
+          <ul>
+            <li>100% identification accuracy in testing</li>
+            <li>80% liveness detection accuracy</li>
+            <li>About 5 seconds from approach to access</li>
+            <li>Final grade: 86</li>
+          </ul>
+        </div>
+      </div>
+
+            <div class="gallery natural">
+        <figure>
+          <div class="media"><img src="assets/iot/face-recognition.png" alt="The door screen showing Face Recognized Successfully and asking for the passcode sent by text" loading="lazy"></div>
+          <figcaption>The door screen after a face is recognised, moving on to the passcode step.</figcaption>
+        </figure>
+        <figure>
+          <div class="media"><img src="assets/iot/admin-app.png" alt="Five screens of the admin app: login, home with an Open Door button, weekly schedule, user management and access logs" loading="lazy"></div>
+          <figcaption>The admin app: login, remote unlock, opening hours, users and access logs.</figcaption>
+        </figure>
+      </div>
+
+<ul class="tags">
+        <li>Raspberry Pi</li><li>Python</li><li>OpenCV</li><li>dlib</li><li>Flask</li><li>MQTT</li><li>AWS EC2</li><li>Nginx</li><li>React Native</li><li>Twilio</li><li>JWT</li>
+      </ul>
+      <p class="project-links"><a href="https://github.com/FizziMilk/iot-access-control-system">Code on GitHub</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Benas Šiaudvytis · <a href="https://github.com/FizziMilk">GitHub</a> · <a href="mailto:siaudvytisbenas@gmail.com">siaudvytisbenas@gmail.com</a></div>
+  </footer>
+
+  <script>
+    // Load and play each clip only while it is on screen, so the page stays light.
+    const videos = document.querySelectorAll("video[data-src]");
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        const v = entry.target;
+        if (entry.isIntersecting) {
+          if (!v.src) v.src = v.dataset.src;
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      }
+    }, { threshold: 0.25 });
+    videos.forEach(v => observer.observe(v));
+  </script>
+</body>
+</html>
