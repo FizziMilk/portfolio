@@ -179,3 +179,7 @@ h3.sub { font-size: 1.1rem; margin: 36px 0 4px; }
 .gallery.app-shots .media { aspect-ratio: 412 / 915; background: var(--surface); }
 .gallery.app-shots img { object-position: top; }
 @media (max-width: 760px) { .gallery.app-shots { grid-template-columns: repeat(2, 1fr); } }
+
+/* Reserve space for media before it loads, so jumping to a section lands in the right place */
+.clips video { aspect-ratio: 16 / 9; }
+.media.orb-clip video { aspect-ratio: 1 / 1; }
