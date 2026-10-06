@@ -13,10 +13,10 @@
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="index.html">Benas Šiaudvytis</a>
+      <a class="brand" href="/">Benas Šiaudvytis</a>
       <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="/">Home</a>
+        <a href="/projects" aria-current="page">Projects</a>
       </nav>
     </div>
   </header>
@@ -107,7 +107,7 @@
     <!-- LED orb -->
     <article class="project" id="orb">
       <h2>Music-reactive LED orb</h2>
-      <p class="summary">An ESP32 fitted inside a pondering orb that turns music into colour and light, controlled from a phone over Bluetooth.</p>
+      <p class="summary">An ESP32 fitted inside a pondering orb that follows the music on its own, with a phone app for changing its settings.</p>
 
       <figure class="headline">
         <div class="media orb-clip"><video src="assets/orb/orb-music.mp4" poster="assets/orb/orb-music-poster.jpg" controls playsinline preload="metadata"></video></div>
@@ -117,14 +117,14 @@
       <div class="detail">
         <div>
           <h3>The problem</h3>
-          <p>I wanted the orb to follow the music itself, not just flash with the volume, and I wanted to add this without damaging the original electronics.</p>
+          <p>My original orb was just a piece of ambient lighting, and I felt it had a lot of wasted potential. So I turned it into something that follows the music: it changes colour with the intensity, dims or brightens with the bass, and adds effects for claps, hi-hats, drops and special segments.</p>
         </div>
         <div>
           <h3>What I built</h3>
           <ul>
             <li>Firmware that runs an FFT on audio from an INMP441 I2S microphone and groups the energy into the 12 musical notes to choose the colour.</li>
             <li>Brightness that follows the volume, and kick-drum detection with a low-pass filter that pulses the lights.</li>
-            <li>A web app that connects over Bluetooth for live control, calibration and saving presets to the ESP32.</li>
+            <li>A web app that connects over Bluetooth to change settings, calibrate and save presets to the ESP32.</li>
             <li>The original infrared remote's buttons remapped to switch between presets.</li>
           </ul>
         </div>
@@ -150,7 +150,7 @@
       </div>
 
       <h3 class="sub">The control app</h3>
-      <p class="sub-intro">A web app that connects to the orb over Bluetooth from a phone, for live control, calibration and saving presets.</p>
+      <p class="sub-intro">The orb reacts to music by itself. This web app connects to it over Bluetooth from a phone to change its settings, calibrate it and save presets.</p>
       <div class="gallery app-shots">
         <figure>
           <div class="media"><img src="assets/orb/app-home.jpg" alt="Orb web app: Home tab with mode, brightness, sensitivity and the preset list" loading="lazy"></div>
@@ -229,7 +229,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">Benas Šiaudvytis · <a href="https://github.com/FizziMilk">GitHub</a> · <a href="mailto:siaudvytisbenas@gmail.com">siaudvytisbenas@gmail.com</a></div>
+    <div class="wrap">Benas Šiaudvytis · <a href="https://github.com/FizziMilk">GitHub</a> · siaudvytisbenas@gmail.com</div>
   </footer>
 
   <script>
